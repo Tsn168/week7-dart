@@ -29,29 +29,6 @@ class ProfileApp extends StatelessWidget {
               backgroundImage: AssetImage('assets/images/w8/aang.png'),
             ),
             const SizedBox(height: 20),
-            // Text(
-            //   'Ronan OGOR',
-            //   style: TextStyle(
-            //     fontSize: 24,
-            //     fontWeight: FontWeight.bold,
-            //     color: AppColors.primary,
-            //   ),
-            // ),
-            // const Text(
-            //   'Flutter Developer',
-            //   style: TextStyle(fontSize: 16, color: Colors.grey),
-            // ),
-            // const SizedBox(height: 20),
-            // const ProfileTile(
-            //   icon: Icons.phone,
-            //   title: "Phone Number",
-            //   data: "+123 456 7890",
-            // ),
-            // const ProfileTile(
-            //   icon: Icons.location_on,
-            //   title: "Address",
-            //   data: "Cambodia",
-            // ),
             Text(
               profile.name,
               style: TextStyle(
@@ -65,13 +42,8 @@ class ProfileApp extends StatelessWidget {
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             const SizedBox(height: 20),
-            ...profile.tiles.map(
-              (title) => ProfileTile(
-                icon: title.icon,
-                title: title.title,
-                data: title.value,
-              ),
-            ),
+            for (var tile in profile.tiles)
+              ProfileTile(icon: tile.icon, title: tile.title, data: tile.value),
           ],
         ),
       ),
